@@ -1,3 +1,6 @@
+from cProfile import label
+from cgitb import text
+from email.mime import image
 from tkinter import*
 from PIL import Image,ImageTk
 class IMS:
@@ -21,8 +24,33 @@ class IMS:
        #left menu
         leftMenu=Frame(self.root,bd=2,relief=RIDGE,bg="white")
         leftMenu.place(x=0,y=102,width=209,height=565)
+        lbl_menuLogo=Label(leftMenu)
+        lbl_menuLogo.pack(side=TOP,fill=X)
 
+        lbl_menu=Label(leftMenu,text="Menu",font=("times new roman",20),bg="#010c48").pack(side=TOP,fill=X)
+        btn_employee=Button(leftMenu,text="Employee", compound=LEFT,padx=5,anchor="w",font=("times new roman",20,"bold"),bg="white",bd=3,cursor="hand2").pack(side=TOP,fill=X)
+        btn_supplier=Button(leftMenu,text="supplier",compound=LEFT,padx=5,anchor="w",font=("times new roman",20,"bold"),bg="white",bd=3,cursor="hand2").pack(side=TOP,fill=X)
+        btn_category=Button(leftMenu,text="Category",compound=LEFT,padx=5,anchor="w",font=("times new roman",20,"bold"),bg="white",bd=3,cursor="hand2").pack(side=TOP,fill=X)
+        btn_product=Button(leftMenu,text="Product",compound=LEFT,padx=5,anchor="w",font=("times new roman",20,"bold"),bg="white",bd=3,cursor="hand2").pack(side=TOP,fill=X)
+        btn_sales=Button(leftMenu,text="Sales",compound=LEFT,padx=5,anchor="w",font=("times new roman",20,"bold"),bg="white",bd=3,cursor="hand2").pack(side=TOP,fill=X)
+        btn_exit=Button(leftMenu,text="Exit",compound=LEFT,padx=5,anchor="w",font=("times new roman",20,"bold"),bg="white",bd=3,cursor="hand2").pack(side=TOP,fill=X)
+           
+        #content
+        self.lbl_employee=Label(self.root,text="Total Employee\n[ 0 ]",bd=5,relief=RIDGE,bg="#33bbf9",fg="white",font=("goudy old style",20,"bold"))
+        self.lbl_employee.place(x=300,y=120,height=150,width=300)
+ 
+        self.lbl_supplier=Label(self.root,text="Total Supplier\n[ 0 ]",bd=5,relief=RIDGE,bg="#33bbf9",fg="white",font=("goudy old style",20,"bold"))
+        self.lbl_supplier.place(x=650,y=120,height=150,width=300)
+
+        self.lbl_category=Label(self.root,text="Total Category\n[ 0 ]",bd=5,relief=RIDGE,bg="#33bbf9",fg="white",font=("goudy old style",20,"bold"))
+        self.lbl_category.place(x=1000,y=120,height=150,width=300)
+
+        self.lbl_sales=Label(self.root,text="Total Sales\n[ 0 ]",bd=5,relief=RIDGE,bg="#33bbf9",fg="white",font=("goudy old style",20,"bold"))
+        self.lbl_sales.place(x=300,y=300,height=150,width=300)
+
+        self.lbl_products=Label(self.root,text="Total Product\n[ 0 ]",bd=5,relief=RIDGE,bg="#33bbf9",fg="white",font=("goudy old style",20,"bold"))
+        self.lbl_products.place(x=650,y=300,height=150,width=300)
 
 root=Tk()
 obj=IMS(root)
-root.mainloop()        
+root.mainloop()     
