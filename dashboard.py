@@ -2,7 +2,8 @@ from cProfile import label
 from cgitb import text
 from email.mime import image
 from tkinter import*
-from PIL import Image,ImageTk
+from PIL import Image,ImageTk#pip install pillow
+from employee import employeeClass
 class IMS:
     def __init__(self,root):
         self.root=root
@@ -28,7 +29,7 @@ class IMS:
         lbl_menuLogo.pack(side=TOP,fill=X)
 
         lbl_menu=Label(leftMenu,text="Menu",font=("times new roman",20),bg="#010c48").pack(side=TOP,fill=X)
-        btn_employee=Button(leftMenu,text="Employee", compound=LEFT,padx=5,anchor="w",font=("times new roman",20,"bold"),bg="white",bd=3,cursor="hand2").pack(side=TOP,fill=X)
+        btn_employee=Button(leftMenu,text="Employee",command=self.employee,compound=LEFT,padx=5,anchor="w",font=("times new roman",20,"bold"),bg="white",bd=3,cursor="hand2").pack(side=TOP,fill=X)
         btn_supplier=Button(leftMenu,text="supplier",compound=LEFT,padx=5,anchor="w",font=("times new roman",20,"bold"),bg="white",bd=3,cursor="hand2").pack(side=TOP,fill=X)
         btn_category=Button(leftMenu,text="Category",compound=LEFT,padx=5,anchor="w",font=("times new roman",20,"bold"),bg="white",bd=3,cursor="hand2").pack(side=TOP,fill=X)
         btn_product=Button(leftMenu,text="Product",compound=LEFT,padx=5,anchor="w",font=("times new roman",20,"bold"),bg="white",bd=3,cursor="hand2").pack(side=TOP,fill=X)
@@ -50,7 +51,15 @@ class IMS:
 
         self.lbl_products=Label(self.root,text="Total Product\n[ 0 ]",bd=5,relief=RIDGE,bg="#33bbf9",fg="white",font=("goudy old style",20,"bold"))
         self.lbl_products.place(x=650,y=300,height=150,width=300)
+#====================================================================#
 
-root=Tk()
-obj=IMS(root)
-root.mainloop()     
+    def employee(self):
+         self.new_win=Toplevel(self.root)
+         self.new_obj=employeeClass(self.new_win)
+
+
+
+if __name__=="__main__":
+    root=Tk()
+    obj=IMS(root)
+    root.mainloop()     
