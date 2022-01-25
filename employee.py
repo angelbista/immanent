@@ -9,6 +9,8 @@ class employeeClass:
         self.root.config(bg="white")
         self.root.focus_force()
         #=====================
+
+        
         #all varaibles===
         self.var_searchby=StringVar()
         self.var_searchtext=StringVar()
@@ -33,16 +35,25 @@ class employeeClass:
         cmb_search.place(x=10,y=10,width=180)
         cmb_search.current(0)
 
-        txt_search=Entry(SearchFrame,textvariable=self.var_searchby,font=("times new roman",15),bg="lightyellow").place(x=200,y=10)
+        txt_search=Entry(SearchFrame,textvariable=self.var_searchtext,font=("times new roman",15),bg="lightyellow").place(x=200,y=10)
         button_search=Button(SearchFrame,text="Search",font=("times new roman",15),bg="#4caf50",fg="white",cursor="hand2").place(x=410,y=9,width=150,height=30)
 
         #==title
-        title=Label(self.root,text="Employee Details",font=("times new roman",40,"bold"),bg="#0f4d7d",fg="#0f4d7d").place(x=50,y=100,width=1000)
+        title=Label(self.root,text="Employee Details",font=("goudy old style",15),bg="#0f4d7d",fg="white").place(x=50,y=100,width=950)
 
         #==content===
-        lbl_empid=Label(self.root,text="Emp ID",font=("times new roman",15,"bold"),bg="white").place(x=50,y=200)
+        lbl_empid=Label(self.root,text="Emp ID",font=("times new roman",15),bg="white").place(x=50,y=200)
+        lbl_gender=Label(self.root,text="Gender",font=("times new roman",15),bg="white").place(x=350,y=200)
+        lbl_contact=Label(self.root,text="Contact",font=("times new roman",15),bg="white").place(x=750,y=200)
 
+        txt_empid=Entry(self.root,textvariable=self.var_emp_id,font=("times new roman",15),bg="white").place(x=150,y=200,width=180)
+        #txt_gender=Entry(self.root,textvariable=self.var_gender,font=("times new roman",15),bg="white").place(x=450,y=200,width=180)
+        cmb_gender=ttk.Combobox(self.root,textvariable=self.var_gender,values=("Select","Male","Female","Other"),state='readonly',justify=CENTER,font=("times new roman",15))
+        cmb_gender.place(x=450,y=200,width=180)
+        cmb_gender.current(0)
+        txt_contact=Entry(self.root,textvariable=self.var_contact,font=("times new roman",15),bg="white").place(x=850,y=200,width=180)
 
+        
 
 
 
